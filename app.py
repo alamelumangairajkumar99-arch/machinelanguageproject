@@ -13,7 +13,7 @@ st.write("Enter the patient's metrics below to evaluate 10-year cardiovascular r
 @st.cache_resource
 def load_trained_model():
     df = pd.read_csv('framingham.csv')
-    df.drop(columns=['education'], inplace=True, axis=1)
+    df.drop(columns=['education'], inplace=True, errors='ignore')
     df.dropna(axis=0, inplace=True)
 
     X = df.drop(['TenYearCHD'], axis=1)
